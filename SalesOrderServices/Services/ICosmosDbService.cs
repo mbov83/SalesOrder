@@ -4,10 +4,10 @@ namespace SalesOrderServices.Services
 {
     public interface ICosmosDbService
     {
-        Task<IEnumerable<Product>> GetMultipleAsync(string query);
-        Task<Product> GetAsync(string id);
-        Task AddAsync(Product item);
-        Task UpdateAsync(string id, Product item);
+        Task<IEnumerable<SalesOrder>> GetMultipleAsync(string query);
+        Task<SalesOrder> GetAsync(string id);
+        Task AddAsync(SalesOrder item);
+        Task UpdateAsync(string id, SalesOrder item);
         Task DeleteAsync(string id);
     }
 }

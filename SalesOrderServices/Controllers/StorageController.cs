@@ -4,7 +4,7 @@ using SalesOrderServices.Services;
 
 namespace TestMaurySore.Controllers
 {
-    [Route("api/Product")]
+    [Route("api/SalesOrder")]
     [ApiController]
     public class StorageController : ControllerBase
     {

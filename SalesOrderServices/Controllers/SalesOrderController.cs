@@ -8,10 +8,10 @@ namespace SalesOrderServices.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class SalesOrderController : ControllerBase
     {
         private readonly ICosmosDbService _cosmosDbService;
-        public ProductController(ICosmosDbService cosmosDbService)
+        public SalesOrderController(ICosmosDbService cosmosDbService)
         {
             _cosmosDbService = cosmosDbService ?? throw new ArgumentNullException(nameof(cosmosDbService));
         }
@@ -29,7 +29,7 @@ namespace SalesOrderServices.Controllers
         }
         // POST api/items
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Product item)
+        public async Task<IActionResult> Create([FromBody] SalesOrder item)
         {
             item.Id = Guid.NewGuid().ToString();
             await _cosmosDbService.AddAsync(item);
@@ -37,7 +37,7 @@ namespace SalesOrderServices.Controllers
         }
         // PUT api/items/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Edit([FromBody] Product item)
+        public async Task<IActionResult> Edit([FromBody] SalesOrder item)
         {
             await _cosmosDbService.UpdateAsync(item.Id, item);
             return NoContent();
